@@ -1,0 +1,45 @@
+\section{Bayesian Search}
+
+% https://medium.com/data-science/a-conceptual-explanation-of-bayesian-model-based-hyperparameter-optimization-for-machine-learning-b8172278050f
+% https://wandb.ai/wandb_fc/articles/reports/What-Is-Bayesian-Hyperparameter-Optimization-With-Tutorial---Vmlldzo1NDQyNzcw
+
+\begin{frame}{Einfaches Beispiel zur Einführung}
+    Rosenbrock funktion minimum finden
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}[allowframebreaks]{Hyperparameter finden mit bayesian search}
+
+Vorschlagen neuer Punkte ein Trade-off zwischen bereits bekannten guten Punkten (exploitation) und neuen hoffentlich noch besseren Punkten (exploration) finden
+
+\begin{equation}
+    validation accuracy = f (parameter_1, parameter_2, ...)
+    vmax validation accuracy ?
+\end{equation}
+
+\begin{enumerate}
+    \item Anname für die Funktion aufstellen.
+    \item Accuracy mit neuen Parametern berechnen.
+    \item Modell der Funktion anhand des Ergebnisses anpassen.
+    \item Vermutung anstellen: Mit welchen Nächsten Werten wird der neue Beste Wert erreicht?
+    \item Zurück zu Punkt 2
+\end{enumerate}
+
+Bessere Ergebnisse in weniger Schritten als Random oder Grid Search
+    
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Visualisierung}
+    Hier GIF einfügen.
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}[fragile]{Beispielimplementierung}
+\begin{lstlisting}[language=Python]
+import optuna
+\end{lstlisting}
+\end{frame}
