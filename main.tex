@@ -20,7 +20,7 @@
 \usepackage{microtype}         % better typography
 \usepackage{polyglossia}    % languages
 
-% % \usepackage{enumitem}
+\usepackage{enumitem}
 
 % citations
 \usepackage[
@@ -56,21 +56,25 @@
 
 \usepackage{appendixnumberbeamer}
 
+\usetheme[]{metropolis}     % beamer style
+
 %___________________________________________________________________
 % Dimensions
 
 \newlength{\imagewidth}
-\setlength{\imagewidth}{0.9\columnwidth}
+\setlength{\imagewidth}{1\columnwidth}
+
+\newlength{\imageheight}
+\setlength{\imageheight}{0.9\textheight}
 
 %___________________________________________________________________
 % Colors
 
-\definecolor{bluelinks}{rgb}{0.16, 0.32, 0.75}
-\definecolor{coloryellow}{HTML}{F0B707}
-
-\newcommand{\commentcolor}{\color{ForestGreen}}
-\newcommand{\stringcolor}{\color{Mulberry}}
-\newcommand{\keywordcolor}{\color{blue}}
+\definecolor{colorblue}{HTML}{0480CC}				% color for weblinks
+\definecolor{colordarkblue}{HTML}{4C1DCC}			% no use case at the moment
+\definecolor{colorgreen}{HTML}{26CC1B}				% color for citations
+\definecolor{colorred}{HTML}{CC1204}				% color for pdf links
+\definecolor{coloryellow}{HTML}{F0B707}			    % color for warnings
 
 %___________________________________________________________________
 % New Makros
@@ -102,17 +106,21 @@
 %___________________________________________________________________
 % Commands
 
-\usetheme[]{metropolis}     % beamer style
-
 \setdefaultlanguage{german}
 \setotherlanguage{english}
 
 \addbibresource{sources.bib}
 
-\graphicspath{{/images}}  
+\graphicspath{{images/}}  
 
 \hypersetup{
 %   hidelinks,
+  colorlinks=true,
+  linkcolor=.,
+  anchorcolor=.,
+  % citecolor=green,
+  % filecolor=magenta,      
+  urlcolor=colorblue,
   bookmarksnumbered=true,
   breaklinks=true,
   pdfauthor=Jan Hoegen,
@@ -126,9 +134,9 @@
 	frame			=	tb ,							%	horizontale Linie oben&unten
 	breaklines		=	true,							%	Zeilenumbruch
 	rulecolor		=	\color{black} ,					%	Rahmenfarbe ist schwarz
-	keywordstyle	=	\keywordcolor ,
-	commentstyle	=	\commentcolor ,
-	stringstyle		=	\stringcolor ,
+	keywordstyle	=	\color{colorblue} ,
+	commentstyle	=	\color{colorblue} ,
+	stringstyle		=	\color{colorblue} ,
 	title			=	\lstname ,						%	Titel ist gleich dem Dateinamen
 	basicstyle		=	\footnotesize\ttfamily ,		%	Kleine Schrift und Monospace
 	numbers			=	left,							%	Zeilennumber links

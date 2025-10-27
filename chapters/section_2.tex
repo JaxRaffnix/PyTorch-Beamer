@@ -1,33 +1,77 @@
 \section{Eigenes Modell zu CIFAR 10}
 
-\begin{frame}{Aufgabenstellung}
-    \begin{itemize}
-        \item AUfgabe: Klassifikation von CIFAR10 Bildern
-        \item 
-    \end{itemize}
+%___________________________________________________________________
 
-    % die folgenden punkte besser weglasasen und nicht erklären
-    % optimizer: AdamW
-    % scheduler: CosineAnnealingLR
+\begin{frame}{Aufgabenstellung}
+    \begin{itemize}[left=1em] % optional: Einzug leicht verringert
+        \item \textbf{Aufgabe:} Klassifikation von CIFAR-10 Bildern
+        \item \textbf{Datensatz:}
+            \begin{itemize}[topsep=1pt, itemsep=1pt] % engerer Abstand für Unterpunkte
+                \item 60.000 Bilder, 10 Klassen, Größe $32\times32\times3$
+                \item Trainingsset: 49.000 Bilder
+                \item Validierungsset: 1.000 Bilder
+                \item Testset: 10.000 Bilder
+            \end{itemize}
+        \item \textbf{Ziel:} Modell in \emph{maximal 10 Epochen} trainieren, um Bilder korrekt zu klassifizieren
+    \end{itemize}
 \end{frame}
+
+
+
+%___________________________________________________________________
 
 \begin{frame}{Architektur des Modells}
-    Bidler zum Modell. Begründungen für die Layer.
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{reduced_graph.pdf}
+    \end{figure}
 
 \end{frame}
 
-\begin{frame}{Ergebnisse}
+%___________________________________________________________________
 
-    gewählte parameter des fertigen besten Modells
+\begin{frame}{Ergebnisse des besten Modells}
 
-    trainings acc:
+\begin{description}
+    \item[Gewählte Hyperparameter:]
+        \begin{itemize}
+            \item ch1 = 64, ch2 = 64, ch3 = 64
+            \item Lernrate = 0.00086
+            \item Weight Decay = 3.81e-6
+        \end{itemize}
 
-    validation acc:
-
-    test acc:
-
-    over oder underfitting? grafik als beleg
-
+    \item[Best Validation Accuracy:] \alert{75.70\%}
     
+    \item[Trainings-Accuracy:] \alert{73\%}
 
+    \item[Test Accuracy:] \alert{75.05\%}
+\end{description}
 \end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Accuracy für verschiedene Klassen}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{class_accuracy.png}
+    \end{figure}
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Confusion Matrix}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{confusion_matrix.png}
+    \end{figure}
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Beispielbilder}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{predictions_grid.png}
+    \end{figure}
+\end{frame}
+

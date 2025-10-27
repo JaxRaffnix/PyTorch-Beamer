@@ -10,28 +10,28 @@
 
 %___________________________________________________________________
 
-\begin{frame}[allowframebreaks]{Hyperparameter finden mit bayesian search}
+% \begin{frame}[allowframebreaks]{Hyperparameter finden mit bayesian search}
 
-Vorschlagen neuer Punkte ein Trade-off zwischen bereits bekannten guten Punkten (exploitation) und neuen hoffentlich noch besseren Punkten (exploration) finden
+% Vorschlagen neuer Punkte ein Trade-off zwischen bereits bekannten guten Punkten (exploitation) und neuen hoffentlich noch besseren Punkten (exploration) finden
 
-\begin{equation}
-    validation accuracy = f (parameter_1, parameter_2, ...)
-    vmax validation accuracy ?
-\end{equation}
+% \begin{equation}
+%     validation accuracy = f (parameter_1, parameter_2, ...)
+%     vmax validation accuracy ?
+% \end{equation}
 
-\begin{enumerate}
-    \item Anname für die Funktion aufstellen.
-    \item Accuracy mit neuen Parametern berechnen.
-    \item Modell der Funktion anhand des Ergebnisses anpassen.
-    \item Vermutung anstellen: Mit welchen Nächsten Werten wird der neue Beste Wert erreicht?
-    \item Zurück zu Punkt 2
-\end{enumerate}
+% \begin{enumerate}
+%     \item Anname für die Funktion aufstellen.
+%     \item Accuracy mit neuen Parametern berechnen.
+%     \item Modell der Funktion anhand des Ergebnisses anpassen.
+%     \item Vermutung anstellen: Mit welchen Nächsten Werten wird der neue Beste Wert erreicht?
+%     \item Zurück zu Punkt 2
+% \end{enumerate}
 
-Bessere Ergebnisse in weniger Schritten als Random oder Grid Search
+% Bessere Ergebnisse in weniger Schritten als Random oder Grid Search
 
-%  P (acc | parameter) = P (paramter |score) * P(score) / P (paramter)
+% %  P (acc | parameter) = P (paramter |score) * P(score) / P (paramter)
     
-\end{frame}
+% \end{frame}
 
 %___________________________________________________________________
 

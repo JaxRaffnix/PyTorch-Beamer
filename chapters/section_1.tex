@@ -1,21 +1,23 @@
-\section{Allgemeines zu Pytorch}
+\section{Allgemeines zu PyTorch}
+
+%___________________________________________________________________
 
 \begin{frame}{PyTorch im Überblick}
     \begin{columns}[T,onlytextwidth]
         \column{0.5\textwidth}
-        
-        Was ist Pytorch
+        \textbf{Was ist PyTorch?}
         \begin{itemize}
-            \item Python Library für Deep Learning
-            \item Beliebt in Forschung und Lehre \cite{bauer}
+            \item Python-Bibliothek für Deep Learning
+            \item Stark verbreitet in Forschung und Lehre \cite{bauer}
+            \item Unterstützt dynamische Berechnungsgraphen („Define-by-Run“)
         \end{itemize}
 
         \column{0.5\textwidth}
-        Warum Pytorch
+        \textbf{Warum PyTorch?}
         \begin{itemize}
-            \item Einfache und flexible Modell-Implementierung
+            \item Einfache und flexible Modellimplementierung
             \item Direkte Nutzung von GPU-Beschleunigung
-            \item Große Community und viele Tutorials
+            \item Große Community, viele Tutorials und Ressourcen
         \end{itemize}
     \end{columns}
 \end{frame}
@@ -24,10 +26,9 @@
 
 \begin{frame}{Grundlegende Konzepte}
     \begin{description}
-        \item[Auto Gradient] Backpropagation wird automatisch berrechnet 
-        \item[nn.Module] Vordefinierte Layers
-        \item[Data Loader] Einfaches Laden und \alert{Parallelisieren} der Datensätze
-        \item[Optimizer] Hinterlegte Optimierfunktionen, z.B. Adam   
+        \item[Autograd] Berechnet Gradienten automatisch für Backpropagation
+        \item[\texttt{nn.Module}] Basis für selbstdefinierte Modelle, enthält vordefinierte Layers
+        \item[DataLoader] Einfaches Laden, Batchen und \alert{Parallelisieren} von Datensätzen
+        \item[Optimizer] Vorgefertigte Optimierer, z.B. \texttt{Adam}
     \end{description}
-    
 \end{frame}
