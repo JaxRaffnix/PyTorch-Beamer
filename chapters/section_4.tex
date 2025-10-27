@@ -7,12 +7,11 @@
     \item Ziel: Maximierung der Validierungsgenauigkeit $f(\text{Parameter}) \rightarrow \text{Validation Accuracy}$.
     \item Idee:
         \begin{itemize}
-            \item Es wird ein Modell erstellt, wie die Funktion f aussehen könnte. Es werden eingangswerte getestet, um eine aussage über das getroffene modell treffen zu können. Das modell wird angepasst. Neue paramter werte werden getestet.
-            \item trade off zwischen neuen testwerten, um das modell zu verbessern und neuen testwerten, um einen neuen maximalwert zu erreichen % ist diese erklärung überhaupt richtig??????
-            % \item Trade-off zwischen \textbf{Exploitation} (bekannte gute Werte) und \textbf{Exploration} (neue Werte)
-            \item Probiert gezielt Parameterkombinationen, um schneller bessere Ergebnisse zu erzielen
+            \item Es wird ein Modell erstellt, das die unbekannte Zielfunktion $f$ abschätzt.
+            \item Nach jeder Evaluierung wird dieses Modell mit den neuen Ergebnissen aktualisiert.
+            \item Eine \textit{Acquisition Function} wählt die nächsten Parameterwerte aus – als Kompromiss zwischen \textbf{Exploration} (neue Bereiche testen) und \textbf{Exploitation} (bestehende gute Bereiche verfeinern).
         \end{itemize}
-    \item Vorteil: Weniger Evaluierungen nötig als bei Random oder Grid Search.
+    \item Vorteil: Findet gute Parameter mit deutlich weniger Versuchen als Random oder Grid Search.
 \end{itemize}
 \end{frame}
 
@@ -25,29 +24,21 @@
 
 %___________________________________________________________________
 \begin{frame}{Anwendung auf unser Modell}
-    %  todo: zwei spalten
-\begin{itemize}
-    \item Anstatt zufällig Parameterkombinationen zu testen (Random Search) oder alle möglichen Kombinationen (Grid Search), wurde \textbf{Bayesian Search} verwendet.
-    \item Das Modell der Funktion $\text{Validation Accuracy} = f(\text{Hyperparameter})$ wird kontinuierlich angepasst.
-    \item Neue Vorschläge für Hyperparameter werden auf Basis bisheriger Ergebnisse erzeugt.
-\end{itemize}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{param_importances.png}
-    \caption{Relative Wichtigkeit der Hyperparameter für die Performance}
-\end{figure}
-\end{frame}
-
-%___________________________________________________________________
-\begin{frame}{Parameter des Bayesian Search}
-\begin{itemize}
-    \item \textbf{Channels:} ch1, ch2, ch3
-    \item \textbf{Lernrate:} kontinuierlicher Wertebereich
-    \item \textbf{Weight Decay:} kontinuierlicher Wertebereich
-    \item Trials: 20
-    % \item Optimierung: AdamW + Cosine Annealing Scheduler % besser nicht erwähenen
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+    \begin{column}{0.52\textwidth}
+        \begin{itemize}
+            \item Anstatt zufällig Parameterkombinationen zu testen (Random Search) oder alle möglichen Kombinationen (Grid Search), wurde \textbf{Bayesian Search} verwendet.
+            \item Das Modell der Funktion $\text{Validation Accuracy} = f(\text{Hyperparameter})$ wird kontinuierlich angepasst.
+            \item Neue Vorschläge für Hyperparameter werden auf Basis bisheriger Ergebnisse erzeugt.
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+        \begin{figure}
+            \includegraphics[width=\linewidth, height=\imageheight, keepaspectratio]{param_importances.png}
+            \caption{Relative Wichtigkeit der Hyperparameter}
+        \end{figure}
+    \end{column}
+\end{columns}
 \end{frame}
 
 %___________________________________________________________________
@@ -55,6 +46,7 @@
 \begin{figure}
     \centering
     \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{optimization_history.png}
-    \caption{Verlauf der Validierungsgenauigkeit über die Trials. Höhere Punkte = bessere Hyperparameter-Kombinationen.}
+    \caption{Verlauf der Validierungsgenauigkeit über die Trials (je höher, desto besser).}
+
 \end{figure}
 \end{frame}
