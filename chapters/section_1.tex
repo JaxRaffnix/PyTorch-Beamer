@@ -1,91 +1,33 @@
 \section{Allgemeines zu Pytorch}
 
-\begin{frame}[fragile]{Datensätze laden}
-\begin{lstlisting}[language=Python]
-import torch
-from torch.utils.data import DataLoader
-from torchvision import datasets, transforms
+\begin{frame}{PyTorch im Überblick}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.5\textwidth}
+        
+        Was ist Pytorch
+        \begin{itemize}
+            \item Python Library für Deep Learning
+            \item Beliebt in Forschung und Lehre \cite{bauer}
+        \end{itemize}
 
-training_data = datasets.CIFAR10(root="data", train=True, download=True, transform=transforms.ToTensor()
-)
-train_dataloader = DataLoader(training_data, batch_size=64)
-
-test_data = ...
-test_dataloader = ...
-\end{lstlisting}
-\end{frame}
-
-%___________________________________________________________________
-  
-\begin{frame}[fragile]{Modelle bauen}
-\begin{lstlisting}[language=Python]
-from torch import nn
-
-model = nn.Sequential(
-    nn.Flatten(),
-    nn.Linear(in_features=32*32*3, out_features=20),
-    nn.ReLU(),
-    nn.Linear(20, 10)
-).to(device)
-
-\end{lstlisting}
+        \column{0.5\textwidth}
+        Warum Pytorch
+        \begin{itemize}
+            \item Einfache und flexible Modell-Implementierung
+            \item Direkte Nutzung von GPU-Beschleunigung
+            \item Große Community und viele Tutorials
+        \end{itemize}
+    \end{columns}
 \end{frame}
 
 %___________________________________________________________________
 
-\begin{frame}[fragile, allowframebreaks]{Modelle trainieren}
-\begin{lstlisting}
-loss_fn = nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
-
-def train(dataloader, model, loss_fn, optimizer):
-    size = len(dataloader.dataset)
-    model.train()
-    for batch, (X, y) in enumerate(dataloader):
-        X, y = X.to(device), y.to(device)
-
-        # Compute prediction error
-        pred = model(X)
-        loss = loss_fn(pred, y)
-
-        # Backpropagation
-        loss.backward()
-        optimizer.step()
-        optimizer.zero_grad()
-\end{lstlisting}
+\begin{frame}{Grundlegende Konzepte}
+    \begin{description}
+        \item[Auto Gradient] Backpropagation wird automatisch berrechnet 
+        \item[nn.Module] Vordefinierte Layers
+        \item[Data Loader] Einfaches Laden und \alert{Parallelisieren} der Datensätze
+        \item[Optimizer] Hinterlegte Optimierfunktionen, z.B. Adam   
+    \end{description}
+    
 \end{frame}
-
-%___________________________________________________________________
-
-\begin{frame}[fragile]{Modelle testen}
-\begin{lstlisting}
-def test(dataloader, model, loss_fn):
-    size = len(dataloader.dataset)
-    num_batches = len(dataloader)
-    model.eval()
-    test_loss, correct = 0, 0
-    with torch.no_grad():
-        for X, y in dataloader:
-            X, y = X.to(device), y.to(device)
-            pred = model(X)
-            test_loss += loss_fn(pred, y).item()
-            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
-    test_loss /= num_batches
-    correct /= size
-\end{lstlisting}
-\end{frame}
-
-%___________________________________________________________________
-
-\begin{frame}[fragile]{Ergebnis}
-\begin{lstlisting}
-epochs = 5
-for t in range(epochs):
-    print(f"Epoch {t+1}\n-------------------------------")
-    train(train_dataloader, model, loss_fn, optimizer)
-    test(test_dataloader, model, loss_fn)
-print("Done!")
-\end{lstlisting}
-\end{frame}
-
-%___________________________________________________________________

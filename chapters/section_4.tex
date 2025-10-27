@@ -1,10 +1,11 @@
-\section{Bayesian Search}
+\section{Hyperparameter mit Bayesian Search}
 
 % https://medium.com/data-science/a-conceptual-explanation-of-bayesian-model-based-hyperparameter-optimization-for-machine-learning-b8172278050f
 % https://wandb.ai/wandb_fc/articles/reports/What-Is-Bayesian-Hyperparameter-Optimization-With-Tutorial---Vmlldzo1NDQyNzcw
 
-\begin{frame}{Einfaches Beispiel zur Einführung}
-    Rosenbrock funktion minimum finden
+\begin{frame}{2D Vergleich Random, Grid, Bayesian}
+    % Rosenbrock funktion minimum finden
+    2d funktion minima suche mit x suchwerten. auf grafik vergleichen.
 \end{frame}
 
 %___________________________________________________________________
@@ -27,6 +28,8 @@ Vorschlagen neuer Punkte ein Trade-off zwischen bereits bekannten guten Punkten 
 \end{enumerate}
 
 Bessere Ergebnisse in weniger Schritten als Random oder Grid Search
+
+%  P (acc | parameter) = P (paramter |score) * P(score) / P (paramter)
     
 \end{frame}
 
@@ -38,8 +41,6 @@ Bessere Ergebnisse in weniger Schritten als Random oder Grid Search
 
 %___________________________________________________________________
 
-\begin{frame}[fragile]{Beispielimplementierung}
-\begin{lstlisting}[language=Python]
-import optuna
-\end{lstlisting}
+\begin{frame}[fragile]{Anwendung auf unser Modell}
+Wie wurde es auf unserer model angewendet?
 \end{frame}

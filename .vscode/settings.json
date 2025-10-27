@@ -1,18 +1,18 @@
 {
   "latex-workshop.latex.recipes": [
     {
+        "name": "latexmk (xelatex)",
+        "tools": [
+            "xelatexmk"
+        ]
+    },
+    {
         "name": "xelatex + biber + xelatex x2",
         "tools": [
             "xelatexmk",
             "biber",
             "xelatexmk",
             "xelatexmk",
-        ]
-    },
-    {
-        "name": "latexmk (xelatex)",
-        "tools": [
-            "xelatexmk"
         ]
     },
   ],
