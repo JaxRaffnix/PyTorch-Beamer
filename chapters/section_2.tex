@@ -17,33 +17,28 @@
     \end{itemize}
 \end{frame}
 
-
-
 %___________________________________________________________________
 
 \begin{frame}{Architektur des Modells}
     \begin{figure}
         \centering
-        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{reduced_graph.pdf}
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{model_architecure.png}
+        \caption{Architektur des eigenen CNN-Modells.}
     \end{figure}
-
 \end{frame}
 
 %___________________________________________________________________
 
 \begin{frame}{Ergebnisse des besten Modells}
-
 \begin{itemize}
     \item \textbf{Gewählte Hyperparameter:}
         \begin{itemize}
             \item ch1 = 64, ch2 = 64, ch3 = 64
-            \item Lernrate = 0.00086
+            \item Lernrate = 8.6e-4
             \item Weight Decay = 3.81e-6
         \end{itemize}
     \item \textbf{Best Validation Accuracy:} \alert{75.70\%}
-    
     \item \textbf{Trainings-Accuracy:} \alert{73\%}
-
     \item \textbf{Test Accuracy:} \alert{75.05\%}
 \end{itemize}
 \end{frame}
@@ -53,7 +48,8 @@
 \begin{frame}{Accuracy für verschiedene Klassen}
     \begin{figure}
         \centering
-        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{class_accuracy.png}
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{class_accuracy.pdf}
+        \caption{Test Accuracy für verschiedene Klassen.}
     \end{figure}
 \end{frame}
 
@@ -62,7 +58,8 @@
 \begin{frame}{Confusion Matrix}
     \begin{figure}
         \centering
-        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{confusion_matrix.png}
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{confusion_matrix.pdf}
+        \caption{Normierte Confusion Matrix für das Testset.}
     \end{figure}
 \end{frame}
 
@@ -71,7 +68,8 @@
 \begin{frame}{Beispielvorhersagen}
     \begin{figure}
         \centering
-        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{predictions_grid.png}
+        \includegraphics[width=\imagewidth, height=0.8\imageheight, keepaspectratio]{predictions_grid.pdf}
+        \caption{Beispielhafte Vorhersagen des Modells.}
+        \imagelegend{Korrekte Klasse: grün. Falsche Klasse: rot.}
     \end{figure}
 \end{frame}
-
