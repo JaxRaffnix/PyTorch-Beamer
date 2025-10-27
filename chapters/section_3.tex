@@ -1,5 +1,23 @@
 \section{Training und Hpyerparameter}
 
+\begin{frame}{Accuracy während des Trainings}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{all_trials_accuracy.png}
+    \end{figure}
+\end{frame}
+
+%___________________________________________________________________
+
+%___________________________________________________________________
+
+\begin{frame}{Lernrate während des Trainings}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{all_trials_lr.png}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Settings für das Training}
 \textbf{Trainingsdaten:}
 \begin{itemize}
@@ -23,6 +41,33 @@
 \end{itemize}
 
 \textbf{Runtime:} abhängig von Batchgröße, Epochenzahl und Modell
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Hardware Auslastung}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{machine.png}
+    \end{figure}
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Laufzeiten}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{runtime_per_trial.png}
+    \end{figure}
+\end{frame}
+
+%___________________________________________________________________
+
+\begin{frame}{Gradcam für Katze}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{gradcam.png}
+    \end{figure}
 \end{frame}
 
 
