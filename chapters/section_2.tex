@@ -3,11 +3,12 @@
 %___________________________________________________________________
 
 \begin{frame}{Aufgabenstellung}
-    \begin{itemize}[left=1em] % optional: Einzug leicht verringert
+    \begin{itemize}
         \item \textbf{Aufgabe:} Klassifikation von CIFAR-10 Bildern
         \item \textbf{Datensatz:}
-            \begin{itemize}[topsep=1pt, itemsep=1pt] % engerer Abstand für Unterpunkte
-                \item 60.000 Bilder, 10 Klassen, Größe $32\times32\times3$
+            \begin{itemize}
+                \item 10 Klassen
+                \item 60.000 Bilder, Größe $32\times32\times3$
                 \item Trainingsset: 49.000 Bilder
                 \item Validierungsset: 1.000 Bilder
                 \item Testset: 10.000 Bilder
@@ -32,20 +33,19 @@
 
 \begin{frame}{Ergebnisse des besten Modells}
 
-\begin{description}
-    \item[Gewählte Hyperparameter:]
+\begin{itemize}
+    \item \textbf{Gewählte Hyperparameter:}
         \begin{itemize}
             \item ch1 = 64, ch2 = 64, ch3 = 64
             \item Lernrate = 0.00086
             \item Weight Decay = 3.81e-6
         \end{itemize}
-
-    \item[Best Validation Accuracy:] \alert{75.70\%}
+    \item \textbf{Best Validation Accuracy:} \alert{75.70\%}
     
-    \item[Trainings-Accuracy:] \alert{73\%}
+    \item \textbf{Trainings-Accuracy:} \alert{73\%}
 
-    \item[Test Accuracy:] \alert{75.05\%}
-\end{description}
+    \item \textbf{Test Accuracy:} \alert{75.05\%}
+\end{itemize}
 \end{frame}
 
 %___________________________________________________________________
@@ -68,7 +68,7 @@
 
 %___________________________________________________________________
 
-\begin{frame}{Beispielbilder}
+\begin{frame}{Beispielvorhersagen}
     \begin{figure}
         \centering
         \includegraphics[width=\imagewidth, height=\imageheight, keepaspectratio]{predictions_grid.png}
